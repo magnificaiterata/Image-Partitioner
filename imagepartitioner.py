@@ -188,8 +188,9 @@ if __name__ == '__main__':
 	oSize = (options.overwidth, options.overheight)
 	ip = ImagePartitioner(partSize=pSize, overlapSize=oSize)
 	
-	outDir = os.path.abspath(args[-1])
-	for inpFile in args[:-1]:
+	outDir = os.path.abspath(args[:-1])
+	for inpFile in args:
+		print inpFile
 		img = Image.open(inpFile)
 		for i, (part, r, c) in enumerate(ip.get_partitions(source=img, overhang=None)):
 			root, ext = os.path.splitext(inpFile)
